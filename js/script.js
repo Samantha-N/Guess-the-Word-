@@ -22,3 +22,10 @@ const updatePlaceHolder = function (word){
     }
     wordInProgress.innerText = placeHolderLetter.join("");
 }
+
+
+guessButton.addEventListener("click", function(e){
+    const inputValue = document.querySelector("input.letter");
+    e.preventDegault();
+    //console.log(e.target.inputValue)
+});
