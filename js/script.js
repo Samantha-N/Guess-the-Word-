@@ -13,3 +13,12 @@ const numOfRemainingGuessesSpan = document.querySelector(".remaining span");
 const message = document.querySelector(".message")
 const playAgainButton = document.querySelector(".play-again")
 const word = "magnolia";
+
+const updatePlaceHolder = function (word){
+    const placeHolderLetter = [];
+    for(let letter of word){
+        console.log(letter);
+        placeHolderLetter.push("●");     
+    }
+    wordInProgress.innerText = placeHolderLetter.join("");
+}
