@@ -29,7 +29,11 @@ updatePlaceHolder(word);
 guessButton.addEventListener("click", function(e){
     const inputValue = document.querySelector("input.letter");
     e.preventDegault();
+    inputValue.value = "";
     //console.log(e.target.inputValue)
+    validatePlayerInput(inputValue);
+    console.log(inputValue)
+
 });
 
 //Validating player's input
@@ -37,11 +41,11 @@ const validatePlayerInput = function (input){
     const acceptedLetter = /[a-zA-Z]/;
 
     if(input.length === 0){
-        console.log(`Please enter a letter`);
+        message.innerText = `Please enter a letter`;
     } else if(input.length > 1){
-        console.log(`Only one guess at a time, please`);
+        message.innerText = `Only one guess at a time, please`;
     } else if (input.matches(acceptedLetter)){
-        console.log(`Please enter only letters`)
+        message.innerText = `Please enter only letters`;
     } else {
         return input} ;
 
