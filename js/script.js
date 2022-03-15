@@ -12,6 +12,7 @@ const remainingGuesses = document.querySelector(".remaining");
 const numOfRemainingGuessesSpan = document.querySelector(".remaining span");
 const message = document.querySelector(".message")
 const playAgainButton = document.querySelector(".play-again")
+
 const word = "magnolia";
 const guessedLetters = [];
 
@@ -28,12 +29,12 @@ updatePlaceHolder(word);
 
 
 guessButton.addEventListener("click", function(e){
-    const inputValue = document.querySelector("input.letter");
     e.preventDefault();
     //empty message paragraph
-    inputValue.value = "";
-    //console.log(e.target.inputValue)
-    validatePlayerInput(inputValue);
+    message.innerText = "";
+    //Grabbing what was entered in the input.
+  
+
     const guess = letterInput.value;
     
     const goodGuess = validateInput(guess);
@@ -59,17 +60,17 @@ const validatePlayerInput = function (input){
     } else if (!input.matches(acceptedLetter)){
         message.innerText = `Please enter only letters`;
     } else {
-        return input} ;
-
-}
+        return input
+    } 
+};
 
 //function that will check input
 const makeGuess = function(guess){
-    guess=guess.toUpperCase();
+    guess = guess.toUpperCase();
     if (guessedLetters.includes(guess)){
         message.innerText = "You already guessed that Letter. Try again.";
     } else {
         guessedLetters.push(guess);
         console.log(guessedLetters)
     }
-}
+};
