@@ -29,13 +29,14 @@ updatePlaceHolder(word);
 
 
 guessButton.addEventListener("click", function(e){
+<<<<<<< HEAD
     e.preventDefault();
     //empty message paragraph
     message.innerText = "";
     //Grabbing what was entered in the input.
   
 
-    const guess = letterInput.value;
+    const guess = inputLetter.value;
     
     const goodGuess = validateInput(guess);
 
@@ -43,6 +44,14 @@ guessButton.addEventListener("click", function(e){
         makeGuess(guess);
     }
       letterInput.value = "";
+=======
+    const inputValue = document.querySelector("input.letter");
+    e.preventDegault();
+    inputValue.value = "";
+    //console.log(e.target.inputValue)
+    validatePlayerInput(inputValue);
+    console.log(inputValue)
+>>>>>>> 220a35566d26419220f7e920f3d5d990abb91643
 
 });
 
@@ -53,11 +62,17 @@ const validatePlayerInput = function (input){
 //return messages checking if player's input is a single letter only
     if(input.length === 0){
         message.innerText = `Please enter a letter`;
+<<<<<<< HEAD
     //Guessing more than one letter at a time
     } else if(input.length > 1){
         message.innerText = `Only one guess at a time, please`;
     //Guess is not an accepted letter ie symbol or number
     } else if (!input.matches(acceptedLetter)){
+=======
+    } else if(input.length > 1){
+        message.innerText = `Only one guess at a time, please`;
+    } else if (input.matches(acceptedLetter)){
+>>>>>>> 220a35566d26419220f7e920f3d5d990abb91643
         message.innerText = `Please enter only letters`;
     } else {
         return input
