@@ -10,6 +10,7 @@ const wordInProgress = document.querySelector(".word-in-progress");
 const remainingGuesses = document.querySelector(".remaining");
 //remaining guesses will appear
 const numOfRemainingGuessesSpan = document.querySelector(".remaining span");
+
 const message = document.querySelector(".message")
 const playAgainButton = document.querySelector(".play-again")
 
@@ -53,12 +54,12 @@ const validatePlayerInput = function (input){
 
     //Guessing more than one letter at a time
     } else if(input.length > 1){
-        message.innerText = `Only one guess at a time, please`;
+        message.innerText = `Only one letter maybe guesses at a time. Try again.`;
     //Guess is not an accepted letter ie symbol or number
     } else if (!input.match(acceptedLetter)){
-
+        message.innerText = `Numbers are not allowed. Please enter a letter A - Z.`;
     }  else if (input.match(acceptedLetter)){
-        message.innerText = `Please enter only letters`;
+        message.innerText = `Sorry! Please try again!`;
     } else {
         return input
     } 
@@ -68,9 +69,23 @@ const validatePlayerInput = function (input){
 const makeGuess = function(guess){
     guess = guess.toUpperCase();
     if (guessedLetters.includes(guess)){
-        message.innerText = "You already guessed that Letter. Try again.";
+        message.innerText = `You already guessed that Letter. Try again.`;
     } else {
         guessedLetters.push(guess);
         console.log(guessedLetters)
+        showPlayersGuesses();
+    }
+};
+
+//function that will show the guessed letters
+
+const showPlayersGuesses = function () {
+    //empty player's guessed letters
+    guessedLettersElement.innerHtml = "";
+    //created a new list item for each letter inside guessedLetters array
+    for (const letter of guessedLetters) {
+    const li = document.createElement("li");
+    li.innerText = letter;
+    guessedLettersElement.append(li);
     }
 };
