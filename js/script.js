@@ -74,6 +74,7 @@ const makeGuess = function(guess){
         guessedLetters.push(guess);
         console.log(guessedLetters)
         showPlayersGuesses();
+        correctLetter(guessedLetters);
     }
 };
 
@@ -88,4 +89,28 @@ const showPlayersGuesses = function () {
     li.innerText = letter;
     guessedLettersElement.append(li);
     }
+};
+
+//function to update the word in progress (will replace the "●"
+const correctLetter = function (guessedLetters){
+    const wordUpper = word.toUpperCase();
+    const wordArray = wordUpper.split("");
+    const updateCircle = [];
+    for (const letter of wordArray){
+        if (guessedLetters.includes(letter)){
+            correctLetter.push(letter.toUpperCase()); {
+                correctLetter.push = ("●");
+            }
+        }
+    }
+    console.log(wordArray);
+    wordInProgress.innerText = correctLetter.join("");
+};
+
+//function to check if player won
+const winChecker =  function (){
+    if (word.toUpperCase === wordInProgress){
+        message.innerHTML = `<p class ="highlight">You win! Congrats!</p>`
+        message.classList.add = ("win");
+}
 };
