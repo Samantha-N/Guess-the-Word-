@@ -74,7 +74,7 @@ const makeGuess = function(guess){
         guessedLetters.push(guess);
         console.log(guessedLetters)
         showPlayersGuesses();
-        correctLetter(guessedLetters);
+        udpateWordInProgress(guessedLetters);
     }
 };
 
@@ -106,7 +106,7 @@ const showPlayersGuesses = function () {
         }
     }
     //console.log(wordArray);
-    wordInProgress.innerText = correctLetter.join("");
+    wordInProgress.innerText = revealWord.join("");
     winChecker();
 };
 
