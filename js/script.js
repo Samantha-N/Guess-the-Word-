@@ -82,7 +82,7 @@ const makeGuess = function(guess){
 
 const showPlayersGuesses = function () {
     //empty player's guessed letters
-    guessedLettersElement.innerHtml = "";
+    guessedLettersElement.innerHTML = "";
     //created a new list item for each letter inside guessedLetters array
     for (const letter of guessedLetters) {
     const li = document.createElement("li");
@@ -102,7 +102,7 @@ const showPlayersGuesses = function () {
         if (guessedLetters.includes(letter)){
             revealWord.push(letter.toUpperCase()); 
          } else {
-             revealWord.push = ("●");
+             revealWord.push  ("●");
         }
     }
     //console.log(wordArray);
